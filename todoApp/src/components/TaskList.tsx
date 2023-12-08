@@ -7,119 +7,119 @@ import DELETE from "../img/delete.svg";
 import "../css/TaskList.scss";
 function TaskList() {
   return (
-    <div className="taskList">
+    <div id="taskList">
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority high">
+        <div className="task__priority task__priority--high">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress todo">
+        <div className="task__progress task__progress--todo">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority low">
+        <div className="task__priority task__priority--low">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress progress">
+        <div className="task__progress task__progress--progress">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority low">
+        <div className="task__priority task__priority--low">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress progress">
+        <div className="task__progress task__progress--progress">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority high">
+        <div className="task__priority task__priority--high">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress done">
+        <div className="task__progress task__progress--done">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority medium">
+        <div className="task__priority task__priority--medium">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress progress">
+        <div className="task__progress task__progress--progress">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority medium">
+        <div className="task__priority task__priority--medium">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress progress">
+        <div className="task__progress task__progress--progress">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
 
       <div className="task">
-        <div className="task task__content">
+        <div className="task__content">
           <h3>Task</h3>
           <p>Go to Gym</p>
         </div>
-        <div className="task task__priority medium">
+        <div className="task__priority task__priority--medium">
           <h3>Priority</h3>
           <p></p>
         </div>
-        <div className="task task__progress progress">
+        <div className="task__progress task__progress--progress">
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img edit" src={EDIT} alt="todo" />
-        <img className="task__img delete" src={DELETE} alt="todo" />
+        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
       </div>
     </div>
   );
