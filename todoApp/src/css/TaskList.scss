@@ -24,6 +24,13 @@
       flex-direction: column;
       align-items: flex-start;
     }
+    @include respond(tablet) {
+      width: 100%;
+      justify-content: space-between;
+    }
+    @include respond(desktop) {
+      justify-content: space-between;
+    }
 
     display: flex;
     width: 60%;
@@ -40,13 +47,15 @@
       margin-bottom: 8px;
     }
     &__img {
-      width: 20px;
+      // width: 20px;
       height: 20px;
       display: flex;
       flex-direction: row;
       gap: 40px;
       @include respond(phone) {
         gap: 24px;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
       }
     }
     &__content {
@@ -54,12 +63,21 @@
       margin: 0px;
       padding: 0px;
       width: 200px;
+      @include respond(tablet) {
+        width: auto;
+      }
+      @include respond(desktop) {
+        width: 30%;
+      }
     }
 
     &__priority {
       display: block;
       margin: 0px;
       padding: 0px;
+      @include respond(desktop) {
+        width: 10%;
+      }
       &--high {
         p {
           color: $colorHigh;
@@ -87,8 +105,9 @@
     }
     &__progress {
       @include respond(phone) {
-        display: block;
-        padding: 0px;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
       }
 
       display: flex;
@@ -100,8 +119,12 @@
 
       h3 {
         @include respond(phone) {
-          display: block;
           padding: 0px;
+          /* display: flex; */
+          padding: 8px 12px;
+          /* gap: 65px; */
+          /* margin: 0px; */
+          flex-direction: column;
         }
         display: flex;
         align-items: center;

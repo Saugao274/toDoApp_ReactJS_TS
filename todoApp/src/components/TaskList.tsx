@@ -1,7 +1,4 @@
 import React from "react";
-import TODO from "../img/todo.svg";
-import PROGRESS from "../img/progress.svg";
-import DONE from "../img/done.svg";
 import EDIT from "../img/edit.svg";
 import DELETE from "../img/delete.svg";
 import "../css/TaskList.scss";
