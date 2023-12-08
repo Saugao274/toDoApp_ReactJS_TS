@@ -1,9 +1,5 @@
-$bgColor: #fff;
-$colorText: #7d8592;
-$colorHigh: red;
-$colorLow: #0ac947;
-$colorMedium: #ffbd21;
-
+@import "respond.scss";
+@import "color.scss";
 #taskList {
   width: 80%;
   display: flex;
@@ -15,17 +11,29 @@ $colorMedium: #ffbd21;
     margin: 0px;
     padding: 0px;
   }
+  @include respond(phone) {
+    width: 100%;
+  }
 
   .task {
+    @include respond(phone) {
+      display: flex;
+      padding: 20px;
+      width: -webkit-fill-available;
+      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     display: flex;
     width: 60%;
-    background-color: $bgColor;
+    background-color: $backgroundTask;
     align-items: center;
     border-radius: 16px;
     padding: 24px 32px;
     gap: 40px;
     h3 {
-      color: $colorText;
+      color: $colorTextTask;
       font-weight: normal;
       font-size: 14px;
       justify-content: center;
@@ -34,12 +42,18 @@ $colorMedium: #ffbd21;
     &__img {
       width: 20px;
       height: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      @include respond(phone) {
+        gap: 24px;
+      }
     }
     &__content {
       display: block;
       margin: 0px;
       padding: 0px;
-      width: 100%;
+      width: 200px;
     }
 
     &__priority {
@@ -72,23 +86,31 @@ $colorMedium: #ffbd21;
       }
     }
     &__progress {
-      & {
-        display: flex;
-        margin: 0px;
+      @include respond(phone) {
+        display: block;
         padding: 0px;
-        gap: 40px;
-        justify-content: center;
-        align-items: center;
       }
+
+      display: flex;
+      margin: 0px;
+      padding: 0px;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+
       h3 {
+        @include respond(phone) {
+          display: block;
+          padding: 0px;
+        }
         display: flex;
         align-items: center;
         justify-items: center;
         width: 80px;
-        background-color: $bgColor;
+        background-color: $backgroundColor;
         border-radius: 8px;
         padding: 8px 16px;
-        color: $colorText;
+        color: $colorTextTask;
         font-weight: normal;
         font-size: 14px;
         justify-content: center;

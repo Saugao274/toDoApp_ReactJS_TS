@@ -21,8 +21,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
       <div className="task">
         <div className="task__content">
@@ -37,8 +43,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
       <div className="task">
         <div className="task__content">
@@ -53,8 +65,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
       <div className="task">
         <div className="task__content">
@@ -69,8 +87,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
       <div className="task">
         <div className="task__content">
@@ -85,8 +109,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
       <div className="task">
         <div className="task__content">
@@ -101,8 +131,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
 
       <div className="task">
@@ -118,8 +154,14 @@ function TaskList() {
           <h3></h3>
           <p></p>
         </div>
-        <img className="task__img task__img--edit" src={EDIT} alt="todo" />
-        <img className="task__img task__img--delete" src={DELETE} alt="todo" />
+        <div className="task__img">
+          <img className="task__img task__img--edit" src={EDIT} alt="todo" />
+          <img
+            className="task__img task__img--delete"
+            src={DELETE}
+            alt="todo"
+          />
+        </div>
       </div>
     </div>
   );
