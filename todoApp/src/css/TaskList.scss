@@ -1,0 +1,140 @@
+$bgColor: #fff;
+$colorText: #7d8592;
+$colorHigh: red;
+$colorLow: #0ac947;
+$colorMedium: #ffbd21;
+
+.taskList {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  h3,
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .task {
+    display: flex;
+    width: 60%;
+    background-color: $bgColor;
+    align-items: center;
+    border-radius: 16px;
+    padding: 24px 32px;
+    gap: 40px;
+    h3 {
+      color: $colorText;
+      font-weight: normal;
+      font-size: 14px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .task__img {
+      width: 20px;
+      height: 20px;
+    }
+    .task__content {
+      display: block;
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+    }
+
+    .task__priority {
+      display: block;
+      margin: 0px;
+      padding: 0px;
+    }
+    .task__progress {
+      display: flex;
+      margin: 0px;
+      padding: 0px;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+      h3 {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        width: 80px;
+        background-color: $bgColor;
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: $colorText;
+        font-weight: normal;
+        font-size: 14px;
+        justify-content: center;
+        font-family: Arial;
+        margin-top: 8px;
+      }
+      p {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .todo {
+      p {
+        &::before {
+          content: url(../img/todo.svg);
+        }
+      }
+      h3 {
+        &::before {
+          content: "To do";
+        }
+      }
+    }
+
+    .progress {
+      p {
+        &::before {
+          content: url(../img/progress.svg);
+        }
+      }
+      h3 {
+        &::before {
+          content: "In Progress";
+        }
+      }
+    }
+    .done {
+      p {
+        &::before {
+          content: url(../img/done.svg);
+        }
+      }
+      h3 {
+        &::before {
+          content: "Done";
+        }
+      }
+    }
+
+    .high {
+      p {
+        color: $colorHigh;
+        &::before {
+          content: "High";
+        }
+      }
+    }
+    .medium {
+      p {
+        color: $colorMedium;
+        &::before {
+          content: "Medium";
+        }
+      }
+    }
+    .low {
+      p {
+        color: $colorLow;
+        &::before {
+          content: "Low";
+        }
+      }
+    }
+  }
+}
