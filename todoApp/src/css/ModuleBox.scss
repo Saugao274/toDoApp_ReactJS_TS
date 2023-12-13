@@ -1,0 +1,124 @@
+@import "respond.scss";
+@import "color.scss";
+.boxHandle {
+  box-sizing: border-box;
+  background-color: $backgroundTask;
+  border-radius: 24px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 24px;
+  gap: 28px;
+  flex-direction: column;
+  font-family: Poppins;
+
+  h1 {
+    font-size: 22px;
+    line-height: 36px;
+    color: $colorTextMain;
+  }
+  &__title {
+    padding: 40px 60px 0px 60px;
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__taskName {
+    padding: 0px 60px;
+    gap: 8px;
+    h3 {
+      font-size: 14px;
+      // width: 100%;
+      margin: 0px;
+      color: #7d8592;
+    }
+    input {
+      border: 1px #d8e0f0 solid;
+      // height: 48px;
+      padding: 12px 20px;
+    }
+  }
+  &__priority {
+    padding: 0px 60px;
+    gap: 8px;
+
+    h3 {
+      margin: 0px;
+      font-size: 14px;
+      // width: 100%;
+      color: #7d8592;
+    }
+    &__btn {
+      gap: 12px;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      // justify-content: center;
+    }
+  }
+  .priority__btn {
+    &--high {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $colorHigh;
+      border: 1px $colorHigh solid;
+      width: 120px;
+
+      height: 36px;
+    }
+    &--medium {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $colorMedium;
+      border: 1px $colorMedium solid;
+      width: 120px;
+
+      height: 36px;
+    }
+    &--low {
+      display: flex;
+      justify-content: center;
+
+      align-items: center;
+      background-color: $colorLow;
+      color: $backgroundTask;
+      border: 1px $colorLow solid;
+      width: 120px;
+      height: 36px;
+      // border: 1px green solid;
+    }
+    &--high,
+    &--medium,
+    &--low {
+      border-radius: 10px;
+    }
+  }
+  &__submit {
+    display: flex;
+    background-color: $backgroundTask;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    &--add {
+      border-radius: 10px;
+      width: 80px;
+      border: 1px $selectColor solid;
+      height: 40px;
+      background-color: $selectColor;
+      color: $backgroundTask;
+    }
+    &--cancel {
+      width: 80px;
+      height: 40px;
+      border-radius: 10px;
+      color: $colorTextTask;
+      border: 1px $borderCancel solid;
+    }
+  }
+}

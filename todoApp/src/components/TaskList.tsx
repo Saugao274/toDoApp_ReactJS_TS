@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import EDIT from "../img/edit.svg";
 import DELETE from "../img/delete.svg";
 import "../css/TaskList.scss";
+import { render } from "react-dom";
+// import { Istate as Props } from "../App";
+// interface IProps {
+//   people: Props["people"];
+//   setPeople: React.Dispatch<React.SetStateAction<Props["people"]>>;
+// }
+export interface Istate {
+  people: { name: string; age: number }[];
+}
 function TaskList() {
+  // const renderList = (): JSX.Element[] => {
+  //   return people.map((person) => {
+  //     return (
+  //       <div className="list-item-container">
+  //         {person.name}-{person.age}
+  //       </div>
+  //     );
+  //   });
+  // };
+
   return (
     <div id="taskList">
       <div className="task">
