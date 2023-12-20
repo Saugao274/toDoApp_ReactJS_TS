@@ -1,6 +1,7 @@
 @import "./css/color.scss";
 @import "./css/respond.scss";
-.body {
+#body {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
