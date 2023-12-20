@@ -1,9 +1,7 @@
 import React from "react";
-import AddTask from "./AddTask";
 import "../css/ModuleBox.scss";
 import Cancel from "../img/Cancel.svg";
 import { Istate as Props } from "../App";
-import { log } from "console";
 // interface IProps {
 //   title: string;
 // }

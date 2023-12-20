@@ -31,7 +31,6 @@ export default function App() {
     { id: 1, taskName: "go to gym", priority: "", progress: "To do" },
     { id: 2, taskName: "go o gym", priority: "", progress: "In Progress" },
   ]);
-  const [idTask, setIdTask] = useState<number>(0);
   const [idCurrent, setIdCurrent] = useState<number>(0);
   const [priority, setPriority] = useState<Istate["priority"]>("");
   const [progress, setProgress] = useState<Istate["progress"]>("To do");
@@ -67,7 +66,7 @@ export default function App() {
   };
 
   const handleDelete = (taskId?: number) => {
-    const newTasks = tasks.filter((task) => task.id != taskId);
+    const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
   function checkID(id: number): boolean {
@@ -102,8 +101,8 @@ export default function App() {
 
   const updateId = (newTask: ITask) => {
     let updateTask = [...tasks];
-    if (newTask.id !== undefined) {
-      updateTask[tasks.findIndex((task) => task.id == newTask.id)] = {
+    if (newTask.id !== -100) {
+      updateTask[tasks.findIndex((task) => task.id === newTask.id)] = {
         taskName: newTask.taskName,
         priority: newTask.priority,
         progress: newTask.progress,

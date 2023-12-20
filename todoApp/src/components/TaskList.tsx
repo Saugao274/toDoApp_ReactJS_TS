@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import EDIT from "../img/edit.svg";
 import DELETE from "../img/delete.svg";
 import "../css/TaskList.scss";
-import { Renderer, render } from "react-dom";
-import ModuleBox from "./ModuleBox";
 import { Istate as Props } from "../App";
 import { Progress } from "../App";
 import { Priority } from "../App";
@@ -54,17 +52,17 @@ function TaskList(props: IProps) {
           )}
           {task?.progress === "To do" ? (
             <div className="task__progress task__progress--todo">
-              <h3></h3>
+              <h3> </h3>
               <p></p>
             </div>
           ) : task.progress === "Done" ? (
             <div className="task__progress task__progress--done">
-              <h3></h3>
+              <h3> </h3>
               <p></p>
             </div>
           ) : (
             <div className="task__progress task__progress--progress">
-              <h3></h3>
+              <h3> </h3>
               <p></p>
             </div>
           )}
