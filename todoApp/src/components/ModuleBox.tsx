@@ -17,6 +17,8 @@ interface IProps {
   handlePriority: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   submitAdd: () => void;
   submitEdit: () => void;
+  clickPriority: string;
+  disable: boolean;
 }
 function ModuleBox(props: IProps) {
   // const [inputData, setInputData] = useState({ name: "", age: "" });
@@ -60,6 +62,7 @@ function ModuleBox(props: IProps) {
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                   props.handlePriority(e)
                 }
+                data-Clicked={props.clickPriority === "High" ? "true" : "false"}
               >
                 High
               </button>
@@ -69,6 +72,9 @@ function ModuleBox(props: IProps) {
                 value={"medium"}
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                   props.handlePriority(e)
+                }
+                data-Clicked={
+                  props.clickPriority === "Medium" ? "true" : "false"
                 }
               >
                 Medium
@@ -80,6 +86,7 @@ function ModuleBox(props: IProps) {
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                   props.handlePriority(e)
                 }
+                data-Clicked={props.clickPriority === "Low" ? "true" : "false"}
               >
                 Low
               </button>
@@ -93,8 +100,17 @@ function ModuleBox(props: IProps) {
                 value={props.btn}
                 id="submit"
                 onClick={() => {
-                  props.btn === "Add" ? props.submitAdd() : props.submitEdit();
+                  if (
+                    !props.disable &&
+                    props.taskName.trim() !== "" &&
+                    props.priority !== ""
+                  ) {
+                    props.btn === "Add"
+                      ? props.submitAdd()
+                      : props.submitEdit();
+                  }
                 }}
+                disabled={props.disable}
               />
             </label>
             <label htmlFor="cancel">

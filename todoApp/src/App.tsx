@@ -17,6 +17,7 @@ export interface Istate {
   setTaskName: React.Dispatch<React.SetStateAction<string>>;
   setPriority: React.Dispatch<React.SetStateAction<Priority>>;
   setProgress: React.Dispatch<React.SetStateAction<Priority | undefined>>;
+  clickPriority: string;
 }
 export interface ITask {
   id: number;
@@ -36,7 +37,8 @@ export default function App() {
   const [progress, setProgress] = useState<Istate["progress"]>("To do");
 
   const [openBox, setOpenBox] = useState(false);
-
+  const [clickPriority, setClickPriority] = useState("");
+  const [disable, setDisable] = useState(true);
   const [title, setTitle] = useState("");
   const [taskName, setTaskName] = useState<string>("");
   const [btn, setBtn] = useState("");
@@ -44,8 +46,10 @@ export default function App() {
     setOpenBox(true);
     setTitle("Add Task");
     setTaskName("");
-    setPriority("");
+    setPriority(priority);
     setBtn("Add");
+    setClickPriority("");
+    setDisable(false);
   }
   const handleEdit = (task: ITask) => {
     setOpenBox(true);
@@ -55,14 +59,17 @@ export default function App() {
     setProgress(task.progress || "To do");
     setBtn("Edit");
     setIdCurrent(task.id);
+    setDisable(false);
   };
   const handleTaskName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTaskName(e.target.value);
+    setTaskName(e.target.value.trim());
+    console.log(e.target.value.trim());
   };
   const handlePriority = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     setPriority(e.currentTarget.innerHTML as Priority);
+    setClickPriority(e.currentTarget.innerHTML);
   };
 
   const handleDelete = (taskId?: number) => {
@@ -85,8 +92,15 @@ export default function App() {
       progress: progress,
       id: -100,
     };
-    updateId(newTask);
-    setOpenBox(false);
+    console.log(newTask.priority);
+
+    if (newTask.taskName.trim().length === 0 || newTask.priority === "") {
+      setDisable(true);
+    } else {
+      setDisable(false);
+      updateId(newTask);
+      setOpenBox(false);
+    }
   };
   const submitEdit = () => {
     const editedTask: ITask = {
@@ -95,8 +109,15 @@ export default function App() {
       progress: progress,
       id: idCurrent,
     };
-    updateId(editedTask);
-    setOpenBox(false);
+    console.log(editedTask.priority);
+
+    if (taskName.trim().length === 0 || clickPriority === "") {
+      setDisable(true);
+    } else {
+      setDisable(false);
+      updateId(editedTask);
+      setOpenBox(false);
+    }
   };
 
   const updateId = (newTask: ITask) => {
@@ -110,7 +131,7 @@ export default function App() {
       };
     } else {
       const idNumber = randomID(Math.floor(Math.random() * 100) + 1);
-      updateTask = [...tasks, { ...newTask, id: idNumber }];
+      updateTask = [{ ...newTask, id: idNumber }, ...tasks];
     }
     setTasks(updateTask);
   };
@@ -128,6 +149,8 @@ export default function App() {
           handlePriority={handlePriority}
           submitAdd={submitAdd}
           submitEdit={submitEdit}
+          clickPriority={clickPriority}
+          disable={disable}
         />
       )}
       <div className="header">
