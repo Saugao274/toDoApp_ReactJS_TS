@@ -62,7 +62,11 @@ function ModuleBox(props: IProps) {
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                   props.handlePriority(e)
                 }
-                data-Clicked={props.clickPriority === "High" ? "true" : "false"}
+                value-clicked={
+                  props.clickPriority === "High" || props.priority === "High"
+                    ? "true"
+                    : "false"
+                }
               >
                 High
               </button>
@@ -73,8 +77,11 @@ function ModuleBox(props: IProps) {
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                   props.handlePriority(e)
                 }
-                data-Clicked={
-                  props.clickPriority === "Medium" ? "true" : "false"
+                value-clicked={
+                  props.clickPriority === "Medium" ||
+                  props.priority === "Medium"
+                    ? "true"
+                    : "false"
                 }
               >
                 Medium
@@ -86,18 +93,22 @@ function ModuleBox(props: IProps) {
                 onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
                   props.handlePriority(e)
                 }
-                data-Clicked={props.clickPriority === "Low" ? "true" : "false"}
+                value-clicked={
+                  props.clickPriority === "Low" || props.priority === "Low"
+                    ? "true"
+                    : "false"
+                }
               >
                 Low
               </button>
             </div>
           </div>
+
           <div className="boxHandle  boxHandle__submit">
             <label htmlFor="submit">
-              <input
+              <button
                 className="boxHandle__submit--add"
                 type="submit"
-                value={props.btn}
                 id="submit"
                 onClick={() => {
                   if (
@@ -111,7 +122,9 @@ function ModuleBox(props: IProps) {
                   }
                 }}
                 disabled={props.disable}
-              />
+              >
+                {props.btn}
+              </button>
             </label>
             <label htmlFor="cancel">
               <input

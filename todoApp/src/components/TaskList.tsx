@@ -5,6 +5,7 @@ import "../css/TaskList.scss";
 import { Istate as Props } from "../App";
 import { Progress } from "../App";
 import { Priority } from "../App";
+import { log } from "console";
 interface IProps {
   tasks: Props["tasks"];
   progress: Progress;
@@ -20,6 +21,12 @@ interface IProps {
     id: number;
   }) => void;
   handleDelete: (taskId: number) => void;
+  updateProgress: (task: {
+    taskName: string;
+    priority: Priority;
+    progress: Progress;
+    id: number;
+  }) => void;
 }
 // export interface Istate {
 //   people: { name: string; age: number }[];
@@ -52,17 +59,19 @@ function TaskList(props: IProps) {
           )}
           {task?.progress === "To do" ? (
             <div className="task__progress task__progress--todo">
-              <h3> </h3>
+              <h3 onClick={() => props.updateProgress(task)}> </h3>
               <p></p>
             </div>
           ) : task.progress === "Done" ? (
             <div className="task__progress task__progress--done">
-              <h3> </h3>
+              <h3 onClick={() => props.updateProgress(task)}> </h3>
+
               <p></p>
             </div>
           ) : (
             <div className="task__progress task__progress--progress">
-              <h3> </h3>
+              <h3 onClick={() => props.updateProgress(task)}> </h3>
+
               <p></p>
             </div>
           )}

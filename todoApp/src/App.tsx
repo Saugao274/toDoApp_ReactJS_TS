@@ -29,8 +29,8 @@ export type Priority = "High" | "Medium" | "Low" | "";
 export type Progress = "To do" | "In Progress" | "Done";
 export default function App() {
   const [tasks, setTasks] = useState<Istate["tasks"]>([
-    { id: 1, taskName: "go to gym", priority: "", progress: "To do" },
-    { id: 2, taskName: "go o gym", priority: "", progress: "In Progress" },
+    { id: 1, taskName: "go to gym", priority: "Low", progress: "To do" },
+    { id: 2, taskName: "go o gym", priority: "High", progress: "In Progress" },
   ]);
   const [idCurrent, setIdCurrent] = useState<number>(0);
   const [priority, setPriority] = useState<Istate["priority"]>("");
@@ -56,6 +56,7 @@ export default function App() {
     setTitle("Edit Task");
     setTaskName(task.taskName || "");
     setPriority(task.priority || "");
+    setClickPriority(task.priority);
     setProgress(task.progress || "To do");
     setBtn("Edit");
     setIdCurrent(task.id);
@@ -63,7 +64,6 @@ export default function App() {
   };
   const handleTaskName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskName(e.target.value.trim());
-    console.log(e.target.value.trim());
   };
   const handlePriority = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -134,6 +134,22 @@ export default function App() {
       updateTask = [{ ...newTask, id: idNumber }, ...tasks];
     }
     setTasks(updateTask);
+    setPriority("");
+  };
+
+  const updateProgress = (curentTask: ITask) => {
+    let updateTask = [...tasks];
+    let newProgress = curentTask.progress;
+    newProgress === "To do"
+      ? (newProgress = "In Progress")
+      : newProgress === "In Progress"
+      ? (newProgress = "Done")
+      : (newProgress = "To do");
+    updateTask[tasks.findIndex((task) => task.id === curentTask.id)] = {
+      ...curentTask,
+      progress: newProgress,
+    };
+    setTasks(updateTask);
   };
   return (
     <div id="body">
@@ -171,6 +187,7 @@ export default function App() {
         btn={"Add"}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
+        updateProgress={updateProgress}
       />
     </div>
   );

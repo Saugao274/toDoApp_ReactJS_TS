@@ -11,7 +11,7 @@
   font-family: "Poppins", sans-serif;
   font-size: small;
   overflow-x: hidden;
-  overflow-y: auto;
+  // overflow-y: ;
   color: $colorTextMain;
   @include respond(phone) {
     padding: 50px 15px 0px 15px;
