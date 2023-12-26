@@ -19,6 +19,7 @@
   }
 
   .boxHandle {
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
     background-color: $backgroundTask;
     border-radius: 24px;
@@ -29,8 +30,13 @@
     border-radius: 24px;
     gap: 28px;
     flex-direction: column;
-    font-family: Poppins;
+    position: sticky;
+    left: 402px;
 
+    @include respond(phone) {
+      width: 90%;
+      left: 0px;
+    }
     h1 {
       font-size: 22px;
       line-height: 36px;
@@ -43,10 +49,22 @@
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 36px;
+      letter-spacing: 0em;
+      text-align: left;
+      @include respond(phone) {
+        padding: 10px 10px 0 10px;
+      }
     }
     &__taskName {
       padding: 0px 60px;
       gap: 8px;
+      @include respond(phone) {
+        padding: 0px 10px;
+        width: auto;
+      }
       h3 {
         font-size: 14px;
         // width: 100%;
@@ -57,11 +75,25 @@
         border: 1px #d8e0f0 solid;
         // height: 48px;
         padding: 12px 20px;
+        width: 399px;
+        // height: 48px;
+        border-radius: 8px;
+        // left: 20px;
+        // position: relative;
+        // border: 1px;
+        // gap: 10px;
+        @include respond(phone) {
+          width: auto;
+        }
       }
     }
     &__priority {
       padding: 0px 60px;
       gap: 8px;
+      @include respond(phone) {
+        padding: 0px 10px;
+        width: auto;
+      }
 
       h3 {
         margin: 0px;
@@ -75,6 +107,10 @@
         display: flex;
         align-items: center;
         // justify-content: center;
+        @include respond(phone) {
+          width: 100%;
+          display: flex;
+        }
       }
     }
     &.priority__btn {
@@ -131,7 +167,10 @@
       align-items: center;
       justify-content: center;
       padding-bottom: 40px;
-
+      @include respond(phone) {
+        padding-bottom: 10px;
+        width: auto;
+      }
       &--add {
         border-radius: 10px;
         width: 80px;
@@ -139,16 +178,71 @@
         height: 40px;
         background-color: $selectColor;
         color: $backgroundTask;
+        width: 114px;
+        height: 40px;
+        font-weight: bold;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: center;
+        button {
+          width: 54px;
+          height: 16px;
+        }
         &[disabled="true"] {
           background-color: $colorTextTask !important;
         }
       }
       &--cancel {
-        width: 80px;
         height: 40px;
         border-radius: 10px;
+        width: 114px;
+
         color: $colorTextTask;
         border: 1px $borderCancel solid;
+        background-color: $backgroundTask;
+        gap: 20px;
+        // width: 58px;
+        top: 12px;
+        left: 169px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+      }
+      &--add,
+      &--cancel {
+        @include respond(phone) {
+          width: max-content;
+          padding: 10px;
+        }
+      }
+    }
+    &[box-Content="Delete"] {
+      width: 500px;
+      border-radius: 24px;
+      padding: 40px 60px 0px 60px;
+      font-family: "Poppins", sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 33px;
+      letter-spacing: 0em;
+      gap: 32px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include respond(phone) {
+        width: 90%;
+        padding: 10px;
+      }
+    }
+    &__deleteBox {
+      h1 {
+        width: 350px;
+        height: 66px;
+        margin: 0px;
+        padding: 0px;
       }
     }
   }

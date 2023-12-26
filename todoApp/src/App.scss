@@ -26,12 +26,12 @@
     justify-content: space-between;
   }
 
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
-  margin-bottom: 24px;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
   .header__title {
     font-size: 36px;
     font-weight: 600;
@@ -41,6 +41,11 @@
     margin: 0px;
   }
   .header__btn {
+    position: relative;
+    left: 57px;
+    @include respond(phone) {
+      position: static;
+    }
     display: flex;
     align-items: center;
     $colorTextMain: #fff;

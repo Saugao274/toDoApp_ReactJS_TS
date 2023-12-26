@@ -72,9 +72,12 @@ export default function App() {
     setClickPriority(e.currentTarget.innerHTML);
   };
 
-  const handleDelete = (taskId?: number) => {
-    const newTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(newTasks);
+  const handleDelete = (taskId: number) => {
+    setIdCurrent(taskId);
+    setBtn("Delete");
+    setDisable(false);
+    setOpenBox(true);
+    setTitle("Are you sure you want to delete this task?");
   };
   function checkID(id: number): boolean {
     return tasks.some((task) => task.id === id);
@@ -119,7 +122,11 @@ export default function App() {
       setOpenBox(false);
     }
   };
-
+  const submitDelete = () => {
+    const newTasks = tasks.filter((task) => task.id !== idCurrent);
+    setTasks(newTasks);
+    setOpenBox(false);
+  };
   const updateId = (newTask: ITask) => {
     let updateTask = [...tasks];
     if (newTask.id !== -100) {
@@ -167,6 +174,7 @@ export default function App() {
           submitEdit={submitEdit}
           clickPriority={clickPriority}
           disable={disable}
+          submitDelete={submitDelete}
         />
       )}
       <div className="header">
