@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskList from "./components/TaskList";
 import PLUS from "./img/plus.svg";
 import "./App.scss";
@@ -19,6 +19,8 @@ export interface Istate {
   setProgress: React.Dispatch<React.SetStateAction<Priority | undefined>>;
   clickPriority: string;
 }
+let listLocalStorage = localStorage.getItem("list");
+let lsObj = listLocalStorage ? JSON.parse(listLocalStorage) : [];
 export interface ITask {
   id: number;
   taskName: string;
@@ -28,10 +30,11 @@ export interface ITask {
 export type Priority = "High" | "Medium" | "Low" | "";
 export type Progress = "To do" | "In Progress" | "Done";
 export default function App() {
-  const [tasks, setTasks] = useState<Istate["tasks"]>([
-    { id: 1, taskName: "go to gym", priority: "Low", progress: "To do" },
-    { id: 2, taskName: "go o gym", priority: "High", progress: "In Progress" },
-  ]);
+  const [tasks, setTasks] = useState<Istate["tasks"]>(lsObj);
+  useEffect(() => {
+    localStorage?.setItem("list", JSON.stringify(tasks));
+  }, [tasks]);
+
   const [idCurrent, setIdCurrent] = useState<number>(0);
   const [priority, setPriority] = useState<Istate["priority"]>("");
   const [progress, setProgress] = useState<Istate["progress"]>("To do");

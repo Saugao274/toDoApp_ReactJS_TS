@@ -5,7 +5,6 @@ import "../css/TaskList.scss";
 import { Istate as Props } from "../App";
 import { Progress } from "../App";
 import { Priority } from "../App";
-import { log } from "console";
 interface IProps {
   tasks: Props["tasks"];
   progress: Progress;
