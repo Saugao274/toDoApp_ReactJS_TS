@@ -11,6 +11,7 @@
   font-family: "Poppins", sans-serif;
   font-size: small;
   overflow-x: hidden;
+  transition: 1s;
   // overflow-y: ;
   color: $colorTextMain;
   @include respond(phone) {
@@ -43,6 +44,7 @@
   .header__btn {
     position: relative;
     left: 57px;
+
     @include respond(phone) {
       position: static;
     }
