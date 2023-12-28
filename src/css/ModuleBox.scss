@@ -55,14 +55,14 @@
       letter-spacing: 0em;
       text-align: left;
       @include respond(phone) {
-        padding: 10px 10px 0 10px;
+        padding: 20px 0px 0 20px;
       }
     }
     &__taskName {
       padding: 0px 60px;
       gap: 8px;
       @include respond(phone) {
-        padding: 0px 10px;
+        padding: 0px 20px;
         width: auto;
       }
       h3 {
@@ -91,7 +91,7 @@
       padding: 0px 60px;
       gap: 8px;
       @include respond(phone) {
-        padding: 0px 10px;
+        padding: 0px 20px;
         width: auto;
       }
 
@@ -168,7 +168,7 @@
       justify-content: center;
       padding-bottom: 40px;
       @include respond(phone) {
-        padding-bottom: 10px;
+        padding-bottom: 20px;
         width: auto;
       }
       &--add {
@@ -190,7 +190,7 @@
           width: 54px;
           height: 16px;
         }
-        &[disabled="true"] {
+        &[value-disabled="true"] {
           background-color: $colorTextTask !important;
         }
       }
@@ -214,7 +214,7 @@
       &--cancel {
         @include respond(phone) {
           width: max-content;
-          padding: 10px;
+          padding: 10px 30px;
         }
       }
     }

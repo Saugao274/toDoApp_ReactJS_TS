@@ -34,7 +34,6 @@ export default function App() {
   useEffect(() => {
     localStorage?.setItem("list", JSON.stringify(tasks));
   }, [tasks]);
-
   const [idCurrent, setIdCurrent] = useState<number>(0);
   const [priority, setPriority] = useState<Istate["priority"]>("");
   const [progress, setProgress] = useState<Istate["progress"]>("To do");
@@ -45,6 +44,10 @@ export default function App() {
   const [title, setTitle] = useState("");
   const [taskName, setTaskName] = useState<string>("");
   const [btn, setBtn] = useState("");
+  useEffect(() => {
+    taskName !== "" && priority !== "" ? setDisable(false) : setDisable(true);
+  }, [taskName, priority]);
+
   function onOpen() {
     setOpenBox(true);
     setTitle("Add Task");
@@ -52,7 +55,12 @@ export default function App() {
     setPriority(priority);
     setBtn("Add");
     setClickPriority("");
-    setDisable(false);
+    setDisable(true);
+  }
+  function onClose() {
+    setPriority("");
+    setTaskName("");
+    setOpenBox(false);
   }
   const handleEdit = (task: ITask) => {
     setOpenBox(true);
@@ -178,6 +186,7 @@ export default function App() {
           clickPriority={clickPriority}
           disable={disable}
           submitDelete={submitDelete}
+          onClose={onClose}
         />
       )}
       <div className="header">

@@ -20,6 +20,7 @@ interface IProps {
   submitDelete: () => void;
   clickPriority: string;
   disable: boolean;
+  onClose: () => void;
 }
 function ModuleBox(props: IProps) {
   // const [inputData, setInputData] = useState({ name: "", age: "" });
@@ -28,9 +29,9 @@ function ModuleBox(props: IProps) {
   // };
   // const onSubmit = (e) => {};
   // const [cancelStyle, setCancelStyle] = "none";
-  function onClose() {
-    props.setOpenBox(false);
-  }
+  // function onClose() {
+  //   props.setOpenBox(false);
+  // }
   return (
     <>
       <div id="overlay" className={props.openBox ? "show" : ""}>
@@ -39,7 +40,7 @@ function ModuleBox(props: IProps) {
             <>
               <div className="boxHandle boxHandle__title">
                 <h1>{props.title}</h1>
-                <img src={Cancel} alt="" onClick={onClose} />
+                <img src={Cancel} alt="" onClick={props.onClose} />
               </div>
               <form className="boxHandle boxHandle__taskName">
                 <label htmlFor="task">
@@ -116,6 +117,7 @@ function ModuleBox(props: IProps) {
           <div className="boxHandle  boxHandle__submit">
             <label htmlFor="submit">
               <button
+                value-disabled={props.disable ? "true" : "false"}
                 className="boxHandle__submit--add"
                 type="submit"
                 id="submit"
@@ -133,7 +135,6 @@ function ModuleBox(props: IProps) {
                     props.submitDelete();
                   }
                 }}
-                disabled={props.disable}
               >
                 {props.btn}
               </button>
@@ -144,7 +145,7 @@ function ModuleBox(props: IProps) {
                 type="submit"
                 value="Cancel"
                 id="cancel"
-                onClick={onClose}
+                onClick={props.onClose}
               />
             </label>
           </div>

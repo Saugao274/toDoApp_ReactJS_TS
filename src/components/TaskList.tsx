@@ -63,19 +63,17 @@ function TaskList(props: IProps) {
               {task?.progress === "To do" ? (
                 <div className="task__progress task__progress--todo">
                   <h3 onClick={() => props.updateProgress(task)}> </h3>
-                  <p></p>
+                  <p onClick={() => props.updateProgress(task)}></p>
                 </div>
               ) : task.progress === "Done" ? (
                 <div className="task__progress task__progress--done">
                   <h3 onClick={() => props.updateProgress(task)}> </h3>
-
-                  <p></p>
+                  <p onClick={() => props.updateProgress(task)}></p>
                 </div>
               ) : (
                 <div className="task__progress task__progress--progress">
                   <h3 onClick={() => props.updateProgress(task)}> </h3>
-
-                  <p></p>
+                  <p onClick={() => props.updateProgress(task)}></p>
                 </div>
               )}
               <div className="task__img">
