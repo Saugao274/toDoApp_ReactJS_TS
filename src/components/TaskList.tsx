@@ -35,62 +35,68 @@ interface IProps {
 function TaskList(props: IProps) {
   return (
     <div id="taskList">
-      {props.tasks?.map((task) => (
-        <div className="task">
-          <div className="task__content">
-            <h3>Task</h3>
-            <p>{task?.taskName}</p>
-          </div>
-          {task?.priority === "High" ? (
-            <div className="task__priority task__priority--high">
-              <h3>Priority</h3>
-              <p></p>
-            </div>
-          ) : task?.priority === "Medium" ? (
-            <div className="task__priority task__priority--medium">
-              <h3>Priority</h3>
-              <p></p>
-            </div>
-          ) : (
-            <div className="task__priority task__priority--low">
-              <h3>Priority</h3>
-              <p></p>
-            </div>
-          )}
-          {task?.progress === "To do" ? (
-            <div className="task__progress task__progress--todo">
-              <h3 onClick={() => props.updateProgress(task)}> </h3>
-              <p></p>
-            </div>
-          ) : task.progress === "Done" ? (
-            <div className="task__progress task__progress--done">
-              <h3 onClick={() => props.updateProgress(task)}> </h3>
+      {props.tasks.length === 0 ? (
+        <>Your task empty.</>
+      ) : (
+        <>
+          {props.tasks?.map((task) => (
+            <div className="task">
+              <div className="task__content">
+                <h3>Task</h3>
+                <p>{task?.taskName}</p>
+              </div>
+              {task?.priority === "High" ? (
+                <div className="task__priority task__priority--high">
+                  <h3>Priority</h3>
+                  <p></p>
+                </div>
+              ) : task?.priority === "Medium" ? (
+                <div className="task__priority task__priority--medium">
+                  <h3>Priority</h3>
+                  <p></p>
+                </div>
+              ) : (
+                <div className="task__priority task__priority--low">
+                  <h3>Priority</h3>
+                  <p></p>
+                </div>
+              )}
+              {task?.progress === "To do" ? (
+                <div className="task__progress task__progress--todo">
+                  <h3 onClick={() => props.updateProgress(task)}> </h3>
+                  <p></p>
+                </div>
+              ) : task.progress === "Done" ? (
+                <div className="task__progress task__progress--done">
+                  <h3 onClick={() => props.updateProgress(task)}> </h3>
 
-              <p></p>
-            </div>
-          ) : (
-            <div className="task__progress task__progress--progress">
-              <h3 onClick={() => props.updateProgress(task)}> </h3>
+                  <p></p>
+                </div>
+              ) : (
+                <div className="task__progress task__progress--progress">
+                  <h3 onClick={() => props.updateProgress(task)}> </h3>
 
-              <p></p>
+                  <p></p>
+                </div>
+              )}
+              <div className="task__img">
+                <img
+                  className="task__img task__img--edit"
+                  src={EDIT}
+                  alt="todo"
+                  onClick={() => props.handleEdit(task)}
+                />
+                <img
+                  className="task__img task__img--delete"
+                  src={DELETE}
+                  alt="todo"
+                  onClick={() => props.handleDelete(task.id)}
+                />
+              </div>
             </div>
-          )}
-          <div className="task__img">
-            <img
-              className="task__img task__img--edit"
-              src={EDIT}
-              alt="todo"
-              onClick={() => props.handleEdit(task)}
-            />
-            <img
-              className="task__img task__img--delete"
-              src={DELETE}
-              alt="todo"
-              onClick={() => props.handleDelete(task.id)}
-            />
-          </div>
-        </div>
-      ))}
+          ))}
+        </>
+      )}
     </div>
   );
 }
