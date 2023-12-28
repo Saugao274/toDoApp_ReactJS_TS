@@ -1,0 +1,209 @@
+@import "respond.scss";
+@import "color.scss";
+
+#taskList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  font-family: "Poppins", sans-serif;
+
+  h3,
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+  @include respond(phone) {
+    width: 100%;
+  }
+
+  .task {
+    @include respond(phone) {
+      width: 90%;
+      display: flex;
+      padding: 20px;
+      width: -webkit-fill-available;
+      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      position: static;
+    }
+    @include respond(tablet) {
+      // width: 100%;
+      justify-content: space-between;
+    }
+    @include respond(desktop) {
+      justify-content: space-between;
+    }
+
+    display: flex;
+    width: 50%;
+    position: relative;
+    left: 30px;
+    background-color: $backgroundTask;
+    align-items: center;
+    border-radius: 16px;
+    padding: 24px 32px;
+    gap: 40px;
+    h3 {
+      color: $colorTextTask;
+      font-weight: normal;
+      justify-content: center;
+      margin-bottom: 8px;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+    &__img {
+      // width: 20px;
+      height: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      @include respond(phone) {
+        gap: 24px;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+      }
+    }
+    &__content {
+      display: block;
+      margin: 0px;
+      padding: 0px;
+      width: 200px;
+      @include respond(tablet) {
+        width: auto;
+      }
+      @include respond(desktop) {
+        width: 30%;
+      }
+    }
+
+    &__priority {
+      display: block;
+      margin: 0px;
+      padding: 0px;
+      h3 {
+        width: 48px;
+        height: 21px;
+      }
+      p {
+        width: 72px;
+        height: 24px;
+      }
+      @include respond(desktop) {
+        width: 10%;
+      }
+      &--high {
+        p {
+          color: $colorHigh;
+          &::before {
+            content: "High";
+          }
+        }
+      }
+      &--medium {
+        p {
+          color: $colorMedium;
+          &::before {
+            content: "Medium";
+          }
+        }
+      }
+      &--low {
+        p {
+          color: $colorLow;
+          &::before {
+            content: "Low";
+          }
+        }
+      }
+    }
+    &__progress {
+      @include respond(phone) {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      position: relative;
+      left: 5px;
+      display: flex;
+      margin: 0px;
+      padding: 0px;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        @include respond(phone) {
+          padding: 0px;
+          /* display: flex; */
+          padding: 8px 12px;
+          /* gap: 65px; */
+          /* margin: 0px; */
+          flex-direction: column;
+        }
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        width: 88px;
+        height: 16px;
+        background-color: $backgroundColor;
+        border-radius: 8px;
+        padding: 8px 16px 8px 16px;
+        color: $colorTextTask;
+        font-weight: normal;
+        font-size: 14px;
+        justify-content: center;
+        font-family: Arial;
+        margin-top: 8px;
+        gap: 10px;
+      }
+      p {
+        width: 24px;
+        height: 24px;
+      }
+      &--todo {
+        p {
+          &::before {
+            content: url(../img/todo.svg);
+          }
+        }
+        h3 {
+          &::before {
+            content: "To do";
+          }
+        }
+      }
+
+      &--progress {
+        p {
+          &::before {
+            content: url(../img/progress.svg);
+          }
+        }
+        h3 {
+          &::before {
+            content: "In Progress";
+          }
+        }
+      }
+      &--done {
+        p {
+          &::before {
+            content: url(../img/done.svg);
+          }
+        }
+        h3 {
+          &::before {
+            content: "Done";
+          }
+        }
+      }
+    }
+  }
+}
