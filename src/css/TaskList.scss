@@ -18,6 +18,9 @@
   @include respond(phone) {
     width: 100%;
   }
+  @include respond(tablet) {
+    width: 100%;
+  }
 
   .task {
     @include respond(phone) {
