@@ -34,8 +34,9 @@
       position: static;
     }
     @include respond(tablet) {
-      // width: 100%;
+      width: 80%;
       justify-content: space-between;
+      left: 0px;
     }
     @include respond(desktop) {
       justify-content: space-between;
